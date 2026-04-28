@@ -25,6 +25,11 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 ### Link
 - [popular_dados.py](./popular_dados_com_python/popular_dados.py)
 
+## Em tempo de desenvolvimento script python para limpar o banco
+### Link
+- [limpar_dados.py](./popular_dados_com_python/limpar_dados.py)
+
+
 ## CHECKLIST DO DBA: EXPLAIN
 
 Interpretação dos principais sinais do EXPLAIN e ações recomendadas:

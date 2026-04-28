@@ -46,12 +46,6 @@ PRODUTOS_BASE = [
     ("Monitor 24''", "MONI-001", 600.00, 1200.00, "Informática")
 ]
 
-# Status possíveis para entregas
-STATUS_ENTREGA = [
-    'Pendente', 'Em_separacao', 'Enviado', 'Em_transito', 
-    'Entregue', 'Devolvido', 'Extraviado'
-]
-
 def criar_conexao():
     return mysql.connector.connect(**DB_CONFIG)
 
@@ -75,10 +69,10 @@ def gerar_clientes(n=500):
         while True:
             if tipo == 'PF':
                 cpf = fake.cpf().replace('.', '').replace('-', '')
-                doc = cpf[:11]  # CPF puro com 11 dígitos
+                doc = cpf[:11]
             else:
                 cnpj = fake.cnpj().replace('.', '').replace('/', '').replace('-', '')
-                doc = cnpj[:14]  # CNPJ puro com 14 dígitos
+                doc = cnpj[:14]
             
             if doc not in cpfs_utilizados:
                 cpfs_utilizados.add(doc)
@@ -89,7 +83,7 @@ def gerar_clientes(n=500):
         cliente = {
             'nome': nome[:100],
             'email': email,
-            'cpf': doc,  # Agora varchar(14) pode armazenar CPF(11) ou CNPJ(14)
+            'cpf': doc,
             'data_cadastro': fake.date_time_between(start_date='-3y', end_date='now'),
             'tipo_cliente': tipo
         }
@@ -150,6 +144,9 @@ def gerar_pedidos_e_itens(clientes_ids, produtos_ids, num_pedidos=NUM_VENDAS):
     itens_pedido = []
     pedidos_valores = []
     
+    # Dicionário para rastrear combinações pedido+produto já inseridas
+    combinacoes_utilizadas = set()
+    
     for i in range(num_pedidos):
         cliente_id = random.choice(clientes_ids)
         
@@ -194,6 +191,10 @@ def gerar_pedidos_e_itens(clientes_ids, produtos_ids, num_pedidos=NUM_VENDAS):
         for produto_id in produtos_escolhidos:
             quantidade = random.randint(1, 5)
             preco_unitario = Decimal(str(round(random.uniform(20, 2000), 2)))
+            
+            # Marcar combinação como utilizada (será validada na inserção)
+            combinacao = (i, produto_id)  # i é índice temporário
+            combinacoes_utilizadas.add(combinacao)
             
             item = {
                 'produto_id': produto_id,
@@ -242,7 +243,7 @@ def gerar_pagamentos(pedidos_ids, pedidos_status, pedidos_valores, pedidos_datas
     return pagamentos
 
 def gerar_entregas(pedidos_ids, pedidos_status, pedidos_datas):
-    """Gera entregas com os novos campos"""
+    """Gera entregas sem duplicatas (um pedido tem uma entrega)"""
     entregas = []
     
     for pedido_id, status, data_pedido in zip(pedidos_ids, pedidos_status, pedidos_datas):
@@ -253,89 +254,26 @@ def gerar_entregas(pedidos_ids, pedidos_status, pedidos_datas):
             if data_envio > datetime.now():
                 data_envio = None
             
-            # Definir status da entrega
             if status == 'Entregue' and data_envio:
                 data_entrega = data_envio + timedelta(days=random.randint(1, 10))
                 if data_entrega > datetime.now():
                     data_entrega = None
-                    status_entrega = random.choice(['Em_transito', 'Enviado'])
-                else:
-                    status_entrega = 'Entregue'
-            elif status == 'Enviado':
-                data_entrega = None
-                status_entrega = random.choice(['Enviado', 'Em_transito', 'Pendente'])
             else:
                 data_entrega = None
-                status_entrega = 'Pendente'
-            
-            # Data de previsão de entrega
-            if data_envio:
-                data_previsao = data_envio + timedelta(days=random.randint(5, 15))
-            else:
-                data_previsao = None
             
             entrega = {
                 'pedido_id': pedido_id,
                 'codigo_rastreio': fake.bothify(text='???#########??').upper(),
                 'transportadora': random.choice(transportadoras),
                 'data_envio': data_envio,
-                'data_entrega': data_entrega,
-                'status': status_entrega,
-                'data_previsao_entrega': data_previsao,
-                'observacoes': random.choice([None, 'Cliente solicitou atraso', 'Endereço difícil acesso', 'Tentativa de entrega falhou']),
-                'atualizado_por': random.choice([None, 'Sistema', 'Admin', 'Logística'])
+                'data_entrega': data_entrega
             }
             entregas.append(entrega)
     
     return entregas
 
-def gerar_rastreamento_log(entregas_ids, entregas_data):
-    """Gera logs de rastreamento para as entregas"""
-    rastreamentos = []
-    
-    for entrega_id, entrega in zip(entregas_ids, entregas_data):
-        # Gera entre 1 e 5 logs por entrega
-        num_logs = random.randint(1, 5)
-        
-        for i in range(num_logs):
-            # Determina status do log baseado no status atual da entrega
-            if entrega['status'] == 'Entregue' and i == num_logs - 1:
-                status_log = 'Entregue'
-                localizacao = 'Destinatário'
-                descricao = 'Objeto entregue ao destinatário'
-            elif entrega['status'] == 'Extraviado':
-                status_log = 'Extraviado'
-                localizacao = 'Centro de distribuição'
-                descricao = 'Objeto extraviado durante transporte'
-            elif entrega['status'] == 'Devolvido':
-                status_log = 'Devolvido'
-                localizacao = 'Remetente'
-                descricao = 'Objeto devolvido ao remetente'
-            else:
-                status_options = ['Postado', 'Em trânsito', 'Chegou na unidade', 'Saiu para entrega']
-                status_log = random.choice(status_options)
-                localizacao = fake.city()
-                descricao = f'Objeto {status_log.lower()} em {localizacao}'
-            
-            # Data do log baseada na data de envio
-            if entrega['data_envio']:
-                data_log = entrega['data_envio'] + timedelta(days=i)
-            else:
-                data_log = datetime.now() - timedelta(days=random.randint(1, 30))
-            
-            rastreamento = {
-                'entrega_id': entrega_id,
-                'status': status_log,
-                'localizacao': localizacao,
-                'data_hora': data_log,
-                'descricao': descricao
-            }
-            rastreamentos.append(rastreamento)
-    
-    return rastreamentos
-
 def main():
-    print("=== GERADOR DE DADOS FAKER (ESTRUTURA ATUALIZADA) ===\n")
+    print("=== GERADOR DE DADOS FAKER (SEM DUPLICATAS) ===\n")
     
     try:
         conn = criar_conexao()
@@ -345,6 +283,7 @@ def main():
         print("1. Gerando clientes (500) - sem duplicatas...")
         clientes = gerar_clientes(500)
         
+        # Inserir clientes com tratamento de duplicatas
         for cliente in clientes:
             try:
                 cursor.execute("""
@@ -358,6 +297,7 @@ def main():
         
         conn.commit()
         
+        # Buscar IDs dos clientes
         cursor.execute("SELECT id FROM clientes")
         clientes_ids = [row[0] for row in cursor.fetchall()]
         print(f"   ✅ {len(clientes_ids)} clientes inseridos")
@@ -404,6 +344,7 @@ def main():
                 pedidos_datas.append(pedido['data_pedido'])
                 pedidos_status.append(pedido['status'])
                 
+                # Atualizar valor total do pedido
                 if pedidos_valores[i] > 0:
                     cursor.execute("UPDATE pedidos SET valor_total = %s WHERE id = %s",
                                   (float(pedidos_valores[i]), pedido_id))
@@ -415,11 +356,12 @@ def main():
         conn.commit()
         print(f"   ✅ {len(pedidos_ids)} pedidos inseridos")
         
-        # 4. Itens do Pedido
+        # 4. Itens do Pedido (evitando PK duplicada)
         print("\n4. Inserindo itens dos pedidos...")
         itens_inseridos = 0
         combinacoes_verificadas = set()
         
+        # Reconstruir os itens com os IDs reais dos pedidos
         cursor.execute("SELECT id FROM pedidos ORDER BY id")
         pedidos_ids_reais = [row[0] for row in cursor.fetchall()]
         
@@ -430,11 +372,13 @@ def main():
             for _ in range(num_itens):
                 produto_id = random.choice(produtos_ids)
                 
+                # Evitar produto duplicado no mesmo pedido
                 if produto_id in produtos_usados:
                     continue
                 
                 combinacao = (pedido_id, produto_id)
                 
+                # Evitar combinação duplicada
                 if combinacao in combinacoes_verificadas:
                     continue
                 
@@ -452,6 +396,7 @@ def main():
                     itens_inseridos += 1
                     
                 except mysql.connector.IntegrityError:
+                    # PK duplicada, ignora
                     continue
         
         conn.commit()
@@ -475,59 +420,23 @@ def main():
         conn.commit()
         print(f"   ✅ {len(pagamentos)} pagamentos inseridos")
         
-        # 6. Entregas (com novos campos)
-        print("\n6. Gerando entregas com novos campos...")
+        # 6. Entregas
+        print("\n6. Gerando entregas...")
         entregas = gerar_entregas(pedidos_ids, pedidos_status, pedidos_datas)
-        
-        entregas_ids = []
-        entregas_data = []
         
         for entrega in entregas:
             try:
                 cursor.execute("""
-                    INSERT INTO entregas (
-                        pedido_id, codigo_rastreio, transportadora, 
-                        data_envio, data_entrega, status, 
-                        data_previsao_entrega, observacoes, atualizado_por
-                    )
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """, (
-                    entrega['pedido_id'], entrega['codigo_rastreio'], 
-                    entrega['transportadora'], entrega['data_envio'], 
-                    entrega['data_entrega'], entrega['status'],
-                    entrega['data_previsao_entrega'], entrega['observacoes'],
-                    entrega['atualizado_por']
-                ))
-                
-                entregas_ids.append(cursor.lastrowid)
-                entregas_data.append(entrega)
-                
+                    INSERT INTO entregas (pedido_id, codigo_rastreio, transportadora, data_envio, data_entrega)
+                    VALUES (%s, %s, %s, %s, %s)
+                """, (entrega['pedido_id'], entrega['codigo_rastreio'], 
+                      entrega['transportadora'], entrega['data_envio'], 
+                      entrega['data_entrega']))
             except mysql.connector.Error as e:
-                print(f"   ⚠️ Erro ao inserir entrega: {e}")
                 continue
         
         conn.commit()
         print(f"   ✅ {len(entregas)} entregas inseridas")
-        
-        # 7. Rastreamento Log
-        print("\n7. Gerando logs de rastreamento...")
-        rastreamentos = gerar_rastreamento_log(entregas_ids, entregas_data)
-        
-        for rastreamento in rastreamentos:
-            try:
-                cursor.execute("""
-                    INSERT INTO rastreamento_log (entrega_id, status, localizacao, data_hora, descricao)
-                    VALUES (%s, %s, %s, %s, %s)
-                """, (
-                    rastreamento['entrega_id'], rastreamento['status'],
-                    rastreamento['localizacao'], rastreamento['data_hora'],
-                    rastreamento['descricao']
-                ))
-            except mysql.connector.Error as e:
-                continue
-        
-        conn.commit()
-        print(f"   ✅ {len(rastreamentos)} logs de rastreamento inseridos")
         
         # Estatísticas finais
         print("\n" + "="*50)
@@ -542,18 +451,12 @@ def main():
         total_pedidos = cursor.fetchone()[0]
         cursor.execute("SELECT COUNT(*) FROM itens_pedido")
         total_itens = cursor.fetchone()[0]
-        cursor.execute("SELECT COUNT(*) FROM entregas")
-        total_entregas = cursor.fetchone()[0]
-        cursor.execute("SELECT COUNT(*) FROM rastreamento_log")
-        total_logs = cursor.fetchone()[0]
         
         print(f"\n📊 RESUMO FINAL:")
         print(f"   Clientes: {total_clientes}")
         print(f"   Produtos: {total_produtos}")
         print(f"   Pedidos: {total_pedidos}")
         print(f"   Itens: {total_itens}")
-        print(f"   Entregas: {total_entregas}")
-        print(f"   Logs de Rastreamento: {total_logs}")
         
         cursor.execute("""
             SELECT 
@@ -569,17 +472,6 @@ def main():
         for ano, total, valor in cursor.fetchall():
             if ano:
                 print(f"   {ano}: {total} pedidos - R$ {float(valor):,.2f}")
-        
-        # Estatísticas de entregas
-        cursor.execute("""
-            SELECT status, COUNT(*) 
-            FROM entregas 
-            GROUP BY status
-        """)
-        
-        print(f"\n📦 STATUS DAS ENTREGAS:")
-        for status, total in cursor.fetchall():
-            print(f"   {status}: {total}")
         
         conn.close()
         
