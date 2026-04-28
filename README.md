@@ -28,7 +28,8 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 ## CHECKLIST DO DBA: EXPLAIN
 Interpretações de Explain e dicas do que fazer:
 ### EXPLAIN	 | Interpretação | O que fazer
-| type = ALL	           |Full table scan	        | Adicionar índice na coluna do WHERE/JOIN
+'''
+ type = ALL	           |Full table scan	        | Adicionar índice na coluna do WHERE/JOIN
 |------------------------------------------------------------------------------------
 | type = index	           | Full index scan	    | Índice muito largo ou query mal escrita
 | type = range	           | Busca por intervalo	| Bom! Otimizar com índice correto
@@ -41,3 +42,4 @@ Interpretações de Explain e dicas do que fazer:
 | key_len muito alto	   | Índice largo demais	| Revisar colunas no índice composto
 | rows estimado	           | Linhas escaneadas	    | Quanto menor, melhor (<1000 é ideal)
 | filtered = 100%	       | Filtro eficiente	    | Quanto maior, melhor
+'''
