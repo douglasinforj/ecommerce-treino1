@@ -26,19 +26,25 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 
 ## 📊 CHECKLIST DO DBA: EXPLAIN
 
-Interpretação do EXPLAIN e ações recomendadas:
+Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
-| EXPLAIN                     | Interpretação                | O que fazer |
-|----------------------------|------------------------------|-------------|
-| type = ALL                 | Full table scan              | Adicionar índice na coluna do WHERE/JOIN |
-| type = index               | Full index scan              | Índice muito largo ou query mal escrita |
-| type = range               | Busca por intervalo          | Bom! Otimizar com índice correto |
-| type = ref                 | Busca por igualdade          | Ótimo! Índice funcionando |
-| type = const               | Única linha (PK)             | Perfeito! |
-| Extra = Using temporary    | Uso de tabela temporária     | Otimizar GROUP BY / DISTINCT / ORDER BY |
-| Extra = Using filesort     | Ordenação externa            | Adicionar índice na coluna do ORDER BY |
-| Extra = Using index        | Index covering               | Perfeito! Dados vêm só do índice |
-| Extra = Using where        | Filtro pós-índice            | Normal, mas tente cobrir com índice |
-| key_len alto               | Índice muito grande          | Revisar colunas do índice composto |
-| rows (estimado)            | Linhas escaneadas            | Quanto menor, melhor (< 1000 ideal) |
-| filtered = 100%            | Filtro eficiente             | Quanto maior, melhor |
+| Sinal no EXPLAIN           | Interpretação                     | O que fazer                                      | Urgência |
+|----------------------------|----------------------------------|--------------------------------------------------|----------|
+| type = ALL                 | Full table scan                  | Criar índice na coluna do WHERE/JOIN             | 🔴 IMEDIATA |
+| type = index               | Full index scan                  | Índice muito largo, revisar colunas              | 🟡 MÉDIA |
+| type = range               | Busca por intervalo              | Bom, otimizar índice                             | 🟢 OK |
+| type = ref                 | Busca por igualdade              | Índice eficiente                                 | 🟢 OK |
+| type = const               | Acesso por PK única              | Perfeito                                         | 🟢 PERFEITO |
+| Extra = Using temporary    | Uso de tabela temporária         | Otimizar GROUP BY / DISTINCT                     | 🔴 ALTA |
+| Extra = Using filesort     | Ordenação externa                | Criar índice no ORDER BY                         | 🔴 ALTA |
+| Extra = Using index        | Index covering                   | Perfeito, sem ação                               | 🟢 PERFEITO |
+| Extra = Using where        | Filtro após índice               | Tentar cobrir com índice                         | 🟡 MÉDIA |
+| Using join buffer          | JOIN sem índice                  | Criar índice nas colunas de JOIN                 | 🔴 ALTA |
+| key_len alto               | Índice muito largo               | Remover colunas desnecessárias                   | 🟡 MÉDIA |
+| key_len > 100              | Índice excessivamente grande     | Revisar índice composto                          | 🟡 MÉDIA |
+| rows (estimado) > 10000    | Muitas linhas escaneadas         | Adicionar filtros mais restritivos               | 🟡 MÉDIA |
+| rows (estimado) < 1000     | Boa seletividade                 | Ideal                                            | 🟢 OK |
+| filtered = 100%            | Filtro eficiente                 | Ótimo                                            | 🟢 OK |
+| filtered < 10%             | Filtro ineficiente               | Reordenar WHERE / melhorar índice                | 🟡 MÉDIA |
+| Impossible WHERE           | Condição sempre falsa            | Corrigir lógica da query                         | 🔴 IMEDIATA |
+| Select tables optimized away | Query otimizada pelo MySQL     | Nada a fazer                                     | 🟢 PERFEITO |
