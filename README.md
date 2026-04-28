@@ -11,3 +11,9 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
  - pagamentos (PK:id, FK:pedido_id) - One-to-One ou One-to-Many
  - entregas (PK: id, FK: pedido_id)
 
+
+# Populando dados com python com Faker
+- Criar uma pasta 'popular_dados_com_python'
+- Criar ambiente virtual  - No prompt: python -m venv venv
+- ativar ambiente virtual - Acessar pasta: popular_dados_com_python\venv\Scripts   rodar: .\activate
+- instalar dependecias: pip install faker mysql-connector-python pandas
