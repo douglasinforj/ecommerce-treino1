@@ -98,7 +98,19 @@ ADD COLUMN ultima_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRE
 ADD COLUMN atualizado_por VARCHAR(100) NULL AFTER ultima_atualizacao;
 
 
-
+-- 3. Criar tabela de histórico de rastreamento (para logs detalhados)
+CREATE TABLE IF NOT EXISTS rastreamento_log (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    entrega_id INT UNSIGNED NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    localizacao VARCHAR(200),
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    descricao TEXT,
+    FOREIGN KEY (entrega_id) REFERENCES entregas(id) ON DELETE CASCADE,
+    INDEX idx_entrega (entrega_id),
+    INDEX idx_data (data_hora),
+    INDEX idx_status (status)
+);
 
 
 
