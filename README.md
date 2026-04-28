@@ -66,3 +66,14 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
 - Ranking de Vendas por Categoria mostrando: Mês, Categoria, Total Vendas, e Percentual de contribuição para aquele mês.
 [solução](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
+
+- Análise de margem baseada em média ponderada
+[solução](./02-business-queries/02_magem_media_ponderada.sql)
+- Análise de margem por venda individual
+[solução](./02-business-queries/03_margem_venda_individual.sql)
+- Painel executivo Análise resumo para reunião de vendas do tipo alerta e recomendação
+[solução](./02-business-queries/04_painel_executivo_reunioes_board.sql)
+- Análise de cancelamento por perfil
+[solução](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
+- Análise de cancelamento por perfil (Performance)
+[solução](./02-business-queries/06_analise_de_cancelamento_com_performance.sql)
