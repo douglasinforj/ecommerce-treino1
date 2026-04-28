@@ -78,12 +78,37 @@ create table entregas (
 );
 
 -- Índices para performance
+create index idx_pedido_cliente on pedidos(cliente_id);
+create index idx_itens_pedido on itens_pedido(produto_id);
 
 
 
 
---Comandos de Verificação
+--Comandos de Verificação após criação das tabelas
 select * from clientes;
 select * from produtos;
 select * from pedidos;
 select * from itens_pedido;
+select * from pagamentos;
+select * from entregas;
+
+
+--Comando para verificar meus indices criados(especificamente)
+SELECT 
+    TABLE_NAME,
+    INDEX_NAME,
+    COLUMN_NAME
+FROM INFORMATION_SCHEMA.STATISTICS
+WHERE TABLE_SCHEMA = 'ecommerce_vendas'
+  AND INDEX_NAME IN ('idx_pedido_cliente', 'idx_itens_pedido');
+
+
+--Validando se o índice está sendo usado
+EXPLAIN SELECT * FROM pedidos WHERE cliente_id = 1;
+EXPLAIN SELECT * FROM itens_pedido WHERE produto_id = 1;
+
+
+
+--Verifica indices na tabela direto
+SHOW INDEX FROM pedidos;
+SHOW INDEX FROM itens_pedido;
