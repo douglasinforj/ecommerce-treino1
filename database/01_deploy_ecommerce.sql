@@ -55,7 +55,29 @@ CREATE TABLE itens_pedido (
     FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE RESTRICT
 );
 
+-- 5 - Tabela Pagamentos (permite parcelas)
+create table pagamentos (
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    pedido_id int UNSIGNED not null,
+    forma_pagamento ENUM('Cartao', 'Boleto', 'Pix') not null,
+    parcelas tinyint UNSIGNED DEFAULT 1,
+    valor_pago decimal(10,2) not null,
+    data_pagamento datetime,
+    primary key (id),
+    FOREIGN key (pedido_id) REFERENCES pedidos(id) on DELETE CASCADE
+    );
 
+create table entregas (
+    id int UNSIGNED not null AUTO_INCREMENT,
+    pedido_id int UNSIGNED not null,
+    codigo_rastreio varchar(50),
+    transportadora varchar(50),
+    data_envio datetime,
+    primary key (id),
+    FOREIGN key (pedido_id) REFERENCES pedidos(id) on delete CASCADE
+);
+
+-- Índices para performance
 
 
 
