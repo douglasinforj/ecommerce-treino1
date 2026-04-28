@@ -84,3 +84,7 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 [solução](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
 - Análise de cancelamento por perfil (Performance)
 [solução](./02-business-queries/06_analise_de_cancelamento_com_performance.sql)
+
+### Análise de performance de entregas - LEAD TIME
+- SLAs de Tranportadoras
+[solução](./02-business-queries/07_analise_de_performance_de%20entregas.sql)
