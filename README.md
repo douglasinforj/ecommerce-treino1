@@ -11,6 +11,9 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
  - pagamentos (PK:id, FK:pedido_id) - One-to-One ou One-to-Many
  - entregas (PK: id, FK: pedido_id)
 
+![Diagrama](./images/diagrama.png)
+
+
 
 # Populando dados com python com Faker
 - Criar uma pasta 'popular_dados_com_python'
