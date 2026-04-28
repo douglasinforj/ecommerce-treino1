@@ -73,6 +73,8 @@ Para tomadas de decisões é preciso analisar os dados afim de responder pergunt
 [solução](./02-business-queries/03_margem_venda_individual.sql)
 - Painel executivo Análise resumo para reunião de vendas do tipo alerta e recomendação
 [solução](./02-business-queries/04_painel_executivo_reunioes_board.sql)
+
+### Cancelamentos % - Análise de Fraude e Operação
 - Análise de cancelamento por perfil
 [solução](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
 - Análise de cancelamento por perfil (Performance)
