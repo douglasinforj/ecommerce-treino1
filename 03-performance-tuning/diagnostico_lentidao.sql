@@ -18,4 +18,3 @@ GROUP BY c.id;
 SELECT * FROM sys.schema_unused_indexes;
 
 
-EXPLAIN SELECT AVG(valor_total) FROM pedidos WHERE status = 'Entregue';

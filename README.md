@@ -22,8 +22,7 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 - Criar ambiente virtual  - No prompt: python -m venv venv
 - ativar ambiente virtual - Acessar pasta: popular_dados_com_python\venv\Scripts   rodar: .\activate
 - instalar dependecias: pip install faker mysql-connector-python pandas
-## Link
-- [popular_dados.py](./popular_dados_com_python/popular_dados.py)
+- [link - popular_dados.py](./popular_dados_com_python/popular_dados.py)
 
 ## 📊 CHECKLIST DO DBA: EXPLAIN
 
