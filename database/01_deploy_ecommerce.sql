@@ -45,15 +45,15 @@ CREATE TABLE pedidos (
 
 
 -- 4. Tabela Itens do Pedido (Granularidade)
-create table itens_pedido(
-    pedido_id int UNSIGNED not null,
-    produto_id int UNSIGNED not null,
+CREATE TABLE itens_pedido (
+    pedido_id INT UNSIGNED NOT NULL,
+    produto_id INT UNSIGNED NOT NULL,
     quantidade INT NOT NULL CHECK (quantidade > 0),
-    preco_unitario DECIMAL(10,2) NOT NULL, --preco na hora da compra para historico
-    primary key (pedido_id, produto_id),
-    FOREIGN key (pedido_id) REFERENCES pedidos(id) on delete cascade,
-
-)
+    preco_unitario DECIMAL(10,2) NOT NULL, -- Preço na hora da compra (histórico)
+    PRIMARY KEY (pedido_id, produto_id),
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE RESTRICT
+);
 
 
 
