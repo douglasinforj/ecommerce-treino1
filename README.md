@@ -22,7 +22,8 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 - Criar ambiente virtual  - No prompt: python -m venv venv
 - ativar ambiente virtual - Acessar pasta: popular_dados_com_python\venv\Scripts   rodar: .\activate
 - instalar dependecias: pip install faker mysql-connector-python pandas
-- [link - popular_dados.py](./popular_dados_com_python/popular_dados.py)
+### Link
+- [popular_dados.py](./popular_dados_com_python/popular_dados.py)
 
 ## 📊 CHECKLIST DO DBA: EXPLAIN
 
@@ -48,3 +49,5 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 | filtered < 10%             | Filtro ineficiente               | Reordenar WHERE / melhorar índice                | 🟡 MÉDIA |
 | Impossible WHERE           | Condição sempre falsa            | Corrigir lógica da query                         | 🔴 IMEDIATA |
 | Select tables optimized away | Query otimizada pelo MySQL     | Nada a fazer                                     | 🟢 PERFEITO |
+### Link
+- [teste_explan_básico](./03-performance-tuning/diagnostico_lentidao.sql)
