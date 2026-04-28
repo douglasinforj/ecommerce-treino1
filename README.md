@@ -63,7 +63,7 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
 
 ## Treinado Análises de Dados para Negócios
-Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
+### Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
 - Ranking de Vendas por Categoria mostrando: Mês, Categoria, Total Vendas, e Percentual de contribuição para aquele mês.
 [solução](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
 
