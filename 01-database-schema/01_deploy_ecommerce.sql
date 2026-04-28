@@ -80,6 +80,29 @@ create table entregas (
     FOREIGN key (pedido_id) REFERENCES pedidos(id) on delete CASCADE
 );
 
+--para ratreio na entregas, melhorar a tabela de entrega
+ALTER TABLE entregas 
+ADD COLUMN data_entrega DATETIME NULL AFTER data_envio,
+ADD COLUMN status ENUM(
+    'Pendente', 
+    'Em_separacao', 
+    'Enviado', 
+    'Em_transito', 
+    'Entregue', 
+    'Devolvido', 
+    'Extraviado'
+) DEFAULT 'Pendente' AFTER data_entrega,
+ADD COLUMN data_previsao_entrega DATE NULL AFTER status,
+ADD COLUMN observacoes TEXT NULL AFTER data_previsao_entrega,
+ADD COLUMN ultima_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER observacoes,
+ADD COLUMN atualizado_por VARCHAR(100) NULL AFTER ultima_atualizacao;
+
+
+
+
+
+
+
 -- Índices para performance
 create index idx_pedido_cliente on pedidos(cliente_id);
 create index idx_itens_pedido on itens_pedido(produto_id);
