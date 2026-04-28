@@ -25,21 +25,21 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 ## Link
 - [popular_dados.py](./popular_dados_com_python/popular_dados.py)
 
-## CHECKLIST DO DBA: EXPLAIN
-Interpretações de Explain e dicas do que fazer:
-### EXPLAIN	 | Interpretação | O que fazer
-'''
- type = ALL	           |Full table scan	        | Adicionar índice na coluna do WHERE/JOIN
-|------------------------------------------------------------------------------------
-| type = index	           | Full index scan	    | Índice muito largo ou query mal escrita
-| type = range	           | Busca por intervalo	| Bom! Otimizar com índice correto
-| type = ref	           | Busca por igualdade	| Ótimo! Índice funcionando
-| type = const	           | Única linha (PK)	    | Perfeito!
-| Extra = Using temporary  | Tabela temporária	    | Otimizar GROUP BY/DISTINCT/ORDER BY
-| Extra = Using filesort   | Ordenação externa	    | Adicionar índice na coluna ORDER BY
-| Extra = Using index	   | Index covering	        | Perfeito! Dados vem só do índice
-| Extra = Using where	   | Filtro pós-índice      | Normal, mas tenta cobrir tudo com índice
-| key_len muito alto	   | Índice largo demais	| Revisar colunas no índice composto
-| rows estimado	           | Linhas escaneadas	    | Quanto menor, melhor (<1000 é ideal)
-| filtered = 100%	       | Filtro eficiente	    | Quanto maior, melhor
-'''
+## 📊 CHECKLIST DO DBA: EXPLAIN
+
+Interpretação do EXPLAIN e ações recomendadas:
+
+| EXPLAIN                     | Interpretação                | O que fazer |
+|----------------------------|------------------------------|-------------|
+| type = ALL                 | Full table scan              | Adicionar índice na coluna do WHERE/JOIN |
+| type = index               | Full index scan              | Índice muito largo ou query mal escrita |
+| type = range               | Busca por intervalo          | Bom! Otimizar com índice correto |
+| type = ref                 | Busca por igualdade          | Ótimo! Índice funcionando |
+| type = const               | Única linha (PK)             | Perfeito! |
+| Extra = Using temporary    | Uso de tabela temporária     | Otimizar GROUP BY / DISTINCT / ORDER BY |
+| Extra = Using filesort     | Ordenação externa            | Adicionar índice na coluna do ORDER BY |
+| Extra = Using index        | Index covering               | Perfeito! Dados vêm só do índice |
+| Extra = Using where        | Filtro pós-índice            | Normal, mas tente cobrir com índice |
+| key_len alto               | Índice muito grande          | Revisar colunas do índice composto |
+| rows (estimado)            | Linhas escaneadas            | Quanto menor, melhor (< 1000 ideal) |
+| filtered = 100%            | Filtro eficiente             | Quanto maior, melhor |
