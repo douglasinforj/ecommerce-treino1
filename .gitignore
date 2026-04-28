@@ -1,0 +1,220 @@
+# =====================================================
+# .gitignore para Projetos de Banco de Dados e Analytics
+# Autor: DBA Experiente
+# Aplicável para: SQL, Python, R, VS Code, DBeaver, etc.
+# =====================================================
+
+# =====================================================
+# 1. CREDENCIAIS E DADOS SENSÍVEIS (IMPRESCINDÍVEL!)
+# =====================================================
+.env
+.env.local
+.env.production
+.env.development
+*.pem
+*.key
+*.crt
+*.p12
+secrets.yml
+credentials.json
+config/database.yml
+config/database.json
+connection.properties
+
+# =====================================================
+# 2. ARQUIVOS DE CONFIGURAÇÃO LOCAL DO VS CODE
+# =====================================================
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.recommended
+.vscode/settings.json.local
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/*.code-snippets
+
+# Settings específicas do SQLTools (conexões - contém senhas)
+.vscode/sql-tools.json
+.sql-tools.json
+
+# =====================================================
+# 3. LOGS E ARQUIVOS TEMPORÁRIOS
+# =====================================================
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# Logs de execução de queries
+query_logs/
+sql_logs/
+*.out
+error_logs/
+
+# =====================================================
+# 4. DADOS EXPORTADOS E RELATÓRIOS (evite versionar dados grandes)
+# =====================================================
+*.csv
+*.xlsx
+*.xls
+*.tsv
+*.parquet
+*.feather
+
+# Arquivos de dump de banco (PESADOS!)
+*.sql.gz
+*.sql.zip
+*.dump
+*.backup
+backups/
+dumps/
+dump-*.sql
+
+# Relatórios gerados
+reports/
+output/
+exports/
+*.html
+*.pdf
+
+# =====================================================
+# 5. DEPENDÊNCIAS E AMBIENTES PYTHON (se usar para ETL)
+# =====================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# =====================================================
+# 6. DEPENDÊNCIAS R (se usar R para análises)
+# =====================================================
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+.Rproj.user/
+
+# =====================================================
+# 7. DEPENDÊNCIAS NODE (se usar JavaScript/TypeScript)
+# =====================================================
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# =====================================================
+# 8. ARQUIVOS DE MIGRAÇÃO AUTOMÁTICOS (SEPARAR MANUAL DOS AUTOMÁTICOS)
+# =====================================================
+migrations/auto-*
+migrations/temp-*
+alembic/versions/temp_*
+flyway/schema_history_tmp/
+
+# =====================================================
+# 9. ARQUIVOS GRANDES E BINÁRIOS
+# =====================================================
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+*.accdb
+*.frm
+*.ibd
+*.MYD
+*.MYI
+
+# =====================================================
+# 10. IDE E EDITORES (além do VS Code)
+# =====================================================
+# IntelliJ / PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# DBeaver
+.dbeaver-data-sources.xml
+.dbeaver/
+
+# =====================================================
+# 11. ARQUIVOS DE SISTEMA OPERACIONAL
+# =====================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# =====================================================
+# 12. ARQUIVOS QUE CONTÊM SEEDS/MOCK DATA (se for sensível)
+# =====================================================
+seeds/data_*.sql
+seeds/production_*.sql
+test_data/*_full.sql
+mock_data/large_*.sql
+
+# =====================================================
+# 13. ARQUIVOS DE PERFORMANCE E PROFILING
+# =====================================================
+perf_results/
+query_profiles/
+slow_query_logs/
+*.prof
+*.perf
+
+# =====================================================
+# 14. SEUS ARQUIVOS PESSOAIS (customize aqui)
+# =====================================================
+# Adicione aqui seus arquivos pessoais que não devem ser commitados
+notas_pessoais.md
+TODO.md
+rascunho_*.sql
+teste_*.sql
+temporary_*.sql
+
+# =====================================================
+# 15. ARQUIVOS ESPECÍFICOS DO SEU PROJETO
+# =====================================================
+# Personalize conforme necessário:
+# dados_clientes_*.csv        # Dados reais de clientes
+# relatorio_financeiro_*.xlsx # Relatórios financeiros
+# *.sql                       # Se quiser ignorar TODOS os SQL (não recomendado)
