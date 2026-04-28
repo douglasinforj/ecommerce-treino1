@@ -107,6 +107,12 @@ ADD COLUMN atualizado_por VARCHAR(100) NULL AFTER ultima_atualizacao;
 create index idx_pedido_cliente on pedidos(cliente_id);
 create index idx_itens_pedido on itens_pedido(produto_id);
 
+--ìndices para Entrega
+CREATE index idx_status ON entregas(status);
+CREATE index idx_data_envio ON entregas(data_envio);
+CREATE index idx_data_entrega ON entregas(data_entrega);
+CREATE index idx_transportadora_status ON entregas(transportadora, status);
+
 
 
 
