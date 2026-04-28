@@ -25,7 +25,7 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 ### Link
 - [popular_dados.py](./popular_dados_com_python/popular_dados.py)
 
-## 📊 CHECKLIST DO DBA: EXPLAIN
+## CHECKLIST DO DBA: EXPLAIN
 
 Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
@@ -51,3 +51,18 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 | Select tables optimized away | Query otimizada pelo MySQL     | Nada a fazer                                     | 🟢 PERFEITO |
 ### Link
 - [teste_explan_básico](./03-performance-tuning/diagnostico_lentidao.sql)
+
+## Logs - Ambiente de Estudos
+
+- Criar uma tabela específica para logs de consultas
+- Criar um procedure para registrar consultas manuais
+- teste de exemplo, configurando para varias consultas
+### Link
+- [Logs Ambiente de Estudo](./03-performance-tuning/02_teste_queries_com_logs.sql)
+
+
+
+## Treinado Análises de Dados para Negócios
+Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
+- Ranking de Vendas por Categoria mostrando: Mês, Categoria, Total Vendas, e Percentual de contribuição para aquele mês.
+ - [sql](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
