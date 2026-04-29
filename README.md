@@ -18,6 +18,8 @@ outra linguagem "python" pude expandir mais ainda os conhecimentos, agregar valo
 - Lidar com diversidade de SGBDs como: Postgresql, SqlServer (sap), Mysql(pdv lojas)
 
 ## Diagrama Lógico
+Aqui busquei um modelo mais simples em comparação ao robusto sistema de dados do SAP onde realmente 'o filho chora a mãe não vê.'
+Mas a proposta é a mesma, servindo de partida para idéia de sistemas de vendas, criação de APIs etc.
 
  - clientes (PK:id)
  - produtos (PK:id)
@@ -91,7 +93,7 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
 ## Treinando Análises de Dados para Negócios
 
-### Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
+### Perguntas comuns em empresa para tomada de decisão.
 
 - Relatórios de vendas
 [solucao](./02-business-queries/10_relatorio_vendas.sql)
