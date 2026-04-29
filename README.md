@@ -173,6 +173,26 @@ Análises financeiras e de rentabilidade.
 - Análise de margem por venda individual  
 [solucao](./02-business-queries/03_margem_venda_individual.sql)
 
+- Margem de contribuição por produto
+  - Margem percentual
+  - Lucro bruto total
+  - Ranking de lucratividade
+  - Volume de vendas como apoio
+  
+[solucao](./02-business-queries/24_margem_contribuicao.sql)
+
+
+- Análise de performance de pagamentos
+  - Total de transações por método
+  - Valor total pago
+  - Média de parcelas
+  - Taxa de aprovação
+  - Tempo médio até pagamento
+  - Valor médio por parcela
+
+[solucao](./02-business-queries/25_analise_pagamentos.sql.sql)
+
+
 - Painel executivo (resumo com alertas e recomendações)  
 [solucao](./02-business-queries/04_painel_executivo_reunioes_board.sql)
 
