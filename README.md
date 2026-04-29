@@ -196,6 +196,38 @@ Análises financeiras e de rentabilidade.
 - Painel executivo (resumo com alertas e recomendações)  
 [solucao](./02-business-queries/04_painel_executivo_reunioes_board.sql)
 
+
+## Análise de Sucesso x Falhas
+
+- Taxa de falha por método de pagamento
+- Tempo médio de conversão (pedido → pagamento)
+- Receita perdida por cancelamento
+- Ticket médio perdido
+  - Como nosso cenário não a tabela não tem status de pagamento, usamos proxy via pedidos.status.
+
+- VISÃO COMPLETA (nível executivo)
+ - Pedido criado
+   ↓
+ - Forma de pagamento escolhida
+   ↓
+ - Tempo até pagamento
+   ↓
+ - Aprovado ou falha
+   ↓
+
+- Receita gerada ou perdida
+
+[solucao](./02-business-queries/26.1_taxa_retencao_por_metodo_pagamento.sql)
+- Taxa de falha por método (boleto vs cartão vs pix)
+
+[solucao](./02-business-queries/26.2_taxa_conversao_por_metodo.sql)
+- Tempo de conversão por método
+
+[solucao](./02-business-queries/26.3_receita_perdida_por_falta_pagamento.sql)
+
+`Implementei análises de performance de pagamentos incluindo taxa de falha por método, tempo de conversão e receita perdida, permitindo identificar gargalos no checkout e otimizar a conversão financeira.`
+
+
 ---
 
 ### Churn / Cancelamentos / Risco
@@ -248,7 +280,7 @@ VISÃO EMPRESA
         ↓
 - Reposição → decide quanto comprar
 
-#### analises
+#### Análises
 
 - Análise de giro de estoque e cobertura
   - Total vendido por produto
