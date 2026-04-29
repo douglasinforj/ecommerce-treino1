@@ -223,7 +223,8 @@ como adicionar uma tabela para armazenar as remomedações (Deploy)
  - Automação utilizando EVENT do MySQL (atualizar a recomendacoes) - preferência, alguns times usando a propria aplicação ou cron do linux por exemplo.
  - Views - Padronização para consumo pronto e exemplo de consumo
  - Exemplo Simples mas prático de consumo.
-[solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
+ #### Link
+ - [solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
 
 
 
