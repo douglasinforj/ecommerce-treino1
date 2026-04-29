@@ -240,9 +240,24 @@ para as análise seja mais proximas do dia a dia.
  - Comando: 
  `python simulador_vendas.py`
 2. Modos específicos
- - python simulador_vendas.py --backfill 30       (popular dias atras)
- - python simulador_vendas.py --data 2024-12-15   (somente o dia específico)
+ - `python simulador_vendas.py --backfill 30`       (popular dias atras, matendo o temporal)
+ - `python simulador_vendas.py --data 2024-12-15`   (somente o dia específico)
+3. Comportamentos
+ - Madrugada (0-6h): 1 venda a cada ~5 minutos
+ - Manhã (6-12h): 1 venda a cada ~45 segundos
+ - Tarde (12-18h): 1 venda a cada ~30 segundos
+ - Noite (18-24h): 1 venda a cada ~20 segundos
+4. Evolução dos pedidos
+ - Pedidos começam como Aguardando ou Pago
+ - Com o passar das horas, status evoluem: Pago → Processando → Enviado → Entregue
+ - Pagamentos podem levar de 0 a 30 minutos
+5. Monitoramento em tempo real
+ - Exibe status a cada 2 minutos
+ - Mostra total de vendas e faturamento do dia
+ - Top produtos e formas de pagamento
 
+ #### Link
+ - [solucao](./popular_dados_com_python/simulador_vendas.py)
 
 
 
