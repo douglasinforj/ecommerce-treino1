@@ -87,4 +87,9 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
 ### Análise de performance de entregas - LEAD TIME
 - SLAs de Tranportadoras
-[solução](./02-business-queries/07_analise_de_performance_de%20entregas.sql)
+[solução](./02-business-queries/07_analise_de_performance_de_entregas.sql)
+
+### Ranking detalhado para vendas, voltado a executivo, top 10 com análise de tendencias
+- Top 10 com análise de tendência | Classificação para ação
+[solução](./02-business-queries/08_ranking_detalhado_vendas.sql)
+
