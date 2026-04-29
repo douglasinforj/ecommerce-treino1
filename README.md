@@ -242,11 +242,13 @@ Estudos mais profundos e técnicas estatísticas.
 Aqui questões críticas dos negócios são resolvidas ou melhoradas
 
 VISÃO EMPRESA
-Curva ABC → Prioriza produtos importantes
+- Curva ABC → Prioriza produtos importantes
         ↓
-Forecast → prevê demanda futura
+- Forecast → prevê demanda futura
         ↓
-Reposição → decide quanto comprar
+- Reposição → decide quanto comprar
+
+#### analises
 
 - Análise de giro de estoque e cobertura
   - Total vendido por produto
