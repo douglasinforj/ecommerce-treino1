@@ -202,16 +202,20 @@ Estudos mais profundos e técnicas estatísticas.
 
 ---
 
-
-
-
 ## Observação
 Algumas análises (como cancelamentos e SLA) não aparecem diretamente no glossário clássico (LTV, CAC, etc.), mas são **indicadores operacionais críticos** que impactam diretamente métricas como:
 - ROI
 - Churn
 - NPS
 
+## (Deploy) Sistema de Recomendações (querido do mercado para os clientes) 
+Aqui vamos ver e treinar algo que sempre é solicitado por sistema de ecommerce passo a passo, pois vamos tratar o banco alguns ajustes
+como adicionar uma tabela para armazenar as remomedações (Deploy)
 
+1. 
+
+- 
+###
 
 
 
