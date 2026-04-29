@@ -210,12 +210,22 @@ Algumas análises (como cancelamentos e SLA) não aparecem diretamente no gloss�
 
 ---
 
-# Sistema de Recomendações (querido do mercado para os clientes) 
+# Sistema de Recomendações (Querido do mercado) 
 Aqui vamos ver e treinar algo que sempre é solicitado por sistema de ecommerce passo a passo, pois vamos tratar o banco alguns ajustes
 como adicionar uma tabela para armazenar as remomedações (Deploy)
 
-1. 
+1. Deploy passo a passo
+ - Criando indices, melhora a performance
+ - Criando a tabela de recomendações
+ - Gerando recomendações para a tabela criada
+ - Consulta 'consumo' mas em SQL, em aplicações deve ser adaptada para consumo, ou até criação de views, depende da arquitetura pensada.
+ - Consulta segmentando cliente Vip/Fiel
+ - Automação utilizando EVENT do MySQL (atualizar a recomendacoes) - preferência, alguns times usando a propria aplicação ou cron do linux por exemplo.
+ - Views - Padronização para consumo pronto e exemplo de consumo
+ - Exemplo Simples mas prático de consumo.
+[solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
 
+2. Consulta
 
 
 
