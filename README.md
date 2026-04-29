@@ -229,7 +229,7 @@ mas em pequena quantidade de itens (aprox. 20%). Exigem controle rigoroso, inven
 negociação próxima com fornecedores. 
 - Classe B (Relevância Média): Produtos intermediários, compondo cerca de 15% do faturamento e 30% dos itens. O controle é moderado, visando um equilíbrio entre estoque e custo. 
 - Classe C (Baixa Relevância): Itens com baixo faturamento (cerca de 5%), mas que representam a maior quantidade física de produtos (aprox. 50%). Exigem menos controle, evitando altos custos de armazenagem. 
--[solucao](./02-business-queries/20_curva_ABC_real_80_20_baseada_faturamento.sql)
+- [solucao](./02-business-queries/20_curva_ABC_real_80_20_baseada_faturamento.sql)
 
 
 ---
