@@ -135,6 +135,13 @@ Foco em clientes que mais geram receita ao longo do tempo.
 - Top 10 Clientes que mais compram  
 [solucao](./02-business-queries/12_top_10_clientes_mais_compra.sql)
 
+- Análise de Retenção de Clientes por Mês - Taxa de Cliente que voltam a comprar no mês seguinte
+[solucao](./02-business-queries/17_analise_retencao_clientes_mensal.sql)
+
+- LTV (Lifetime Value) por Cliente, análise individual da vida deste cliente (compras, gasto, alertas de relacionamento, dias de compras)
+[solucao](./02-business-queries/18_LTV_lifetime_value_por_cliente.sql)
+
+
 - Ranking detalhado de vendas (Top 10 + tendência + classificação para ação)  
 [solucao](./02-business-queries/08_ranking_detalhado_vendas.sql)
 
@@ -146,6 +153,9 @@ Foco em clientes que mais geram receita ao longo do tempo.
   - Base para recomendação ("quem comprou X também comprou Y")
   - Aumenta LTV e Ticket Médio (AOV)
 [solucao](./02-business-queries/16_analise_funil_vendas_cross_sell_e_up_sell.sql)
+
+
+
 
 ---
 
