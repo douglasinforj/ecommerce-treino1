@@ -212,7 +212,15 @@ Estudos mais profundos e técnicas estatísticas.
 
 ---
 
-### Operação / Estoque (Giro e Ruptura)
+### Operação / Estoque / Data Science / Forecast / Planejamento(Giro e Ruptura)
+Aqui questões críticas dos negócios são resolvidas ou melhoradas
+
+VISÃO EMPRESA
+Curva ABC → Prioriza produtos importantes
+        ↓
+Forecast → prevê demanda futura
+        ↓
+Reposição → decide quanto comprar
 
 - Análise de giro de estoque e cobertura
   - Total vendido por produto
@@ -232,6 +240,18 @@ Estudos mais profundos e técnicas estatísticas.
 
 [solucao](./02-business-queries/20_curva_ABC_real_80_20_baseada_faturamento.sql)
 
+- Reposição automática (sugestão de compra)
+  - Baseado no consumo médio
+
+[solucao](./02-business-queries/21_reposicao_automatica.sql)
+
+
+- Forecast simples (previsão de vendas)
+  - versão prática (média móvel)
+
+[solucao](./02-business-queries/22_forecast_vendas.sql)
+
+`Implementei análises de Curva ABC baseada em faturamento, previsão de demanda e sugestão automatizada de reposição, integrando dados históricos de vendas para otimização de estoque e aumento de eficiência operacional.`
 
 ---
 
