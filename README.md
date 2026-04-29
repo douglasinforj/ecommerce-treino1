@@ -224,7 +224,7 @@ como adicionar uma tabela para armazenar as remomedações (Deploy)
  - Views - Padronização para consumo pronto e exemplo de consumo
  - Exemplo Simples mas prático de consumo.
  #### Link
- - [solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
+ [solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
 
 ---
 
@@ -257,8 +257,10 @@ para as análise seja mais proximas do dia a dia.
  - Top produtos e formas de pagamento
 
  #### Link
- - [solucao](./popular_dados_com_python/simulador_vendas.py)
+ [solucao](./popular_dados_com_python/simulador_vendas.py)
 
+
+#### Resultado script rodando
  ![Diagrama](./images/resultado_simulador_vendas.png)
 
  ---
