@@ -226,7 +226,19 @@ como adicionar uma tabela para armazenar as remomedações (Deploy)
  #### Link
  - [solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
 
+---
 
+# Simulando dia-a-dia dos dados (Muito boa esta fazer real)
+Aqui terá um script em python que irá popular as tabelas do projeto como se estivesse em produção,
+para as análise seja mais proximas do dia a dia.
+
+1. Modo Principal do Script (Vendas em tempo Real)
+ - Gera vendas atuais
+ - Baseado no horário real (mais vendas à tarde/noite)
+ - Velocidade realista (Intervalos entre vendas de 20-300 segundos)
+ - Para com Ctrl+C, mantendo os dados já inseridos
+ - Comando: python simulador_vendas.py
+2. Modos específicos
 
 
 
