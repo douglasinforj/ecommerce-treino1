@@ -124,6 +124,9 @@ Consultas focadas em volume total vendido.
 - Ranking de Vendas por Categoria (mês, categoria, total e percentual)  
 [solucao](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
 
+- Painel para Dashboard Executivo (Métrica Única). KPis em uma query para sistemas ou BI.
+[solucao](./02-business-queries/14_painel_executic_kpi_bi.sql)
+
 ---
 
 ### LTV (Lifetime Value / Valor do cliente)
@@ -134,6 +137,15 @@ Foco em clientes que mais geram receita ao longo do tempo.
 
 - Ranking detalhado de vendas (Top 10 + tendência + classificação para ação)  
 [solucao](./02-business-queries/08_ranking_detalhado_vendas.sql)
+
+- Analise abandono carrinho
+[solucao](./02-business-queries/15_analise_abandono_carrinho.sql)
+
+- Pares de produtos mais comprados juntos (Market Basket Analysis)
+  - Identifica padrões de compra
+  - Base para recomendação ("quem comprou X também comprou Y")
+  - Aumenta LTV e Ticket Médio (AOV)
+[solucao](./02-business-queries/16_analise_funil_vendas_cross_sell_e_up_sell.sql)
 
 ---
 
@@ -173,6 +185,10 @@ Indicadores de perda de clientes ou problemas operacionais.
 ### Operação / SLA / Lead Time
 Performance logística e entrega.
 
+- SLAs de Transportadoras (análise Simples)
+[solucao](./02-business-queries/14_painel_executic_kpi_bi.sql)
+
+
 - SLAs de Transportadoras (análise de entregas / lead time)  
 [solucao](./02-business-queries/07_analise_de_performance_de_entregas.sql)
 
@@ -185,6 +201,9 @@ Estudos mais profundos e técnicas estatísticas.
 [solucao](./02-business-queries/13_deteccao_de_anomalias-z-score.sql)
 
 ---
+
+
+
 
 ## Observação
 Algumas análises (como cancelamentos e SLA) não aparecem diretamente no glossário clássico (LTV, CAC, etc.), mas são **indicadores operacionais críticos** que impactam diretamente métricas como:
