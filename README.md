@@ -79,7 +79,7 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 | Impossible WHERE           | Condição sempre falsa            | Corrigir lógica da query                         | 🔴 IMEDIATA |
 | Select tables optimized away | Query otimizada pelo MySQL     | Nada a fazer                                     | 🟢 PERFEITO |
 ### Link
-- [teste_explan_básico_exemplo](./03-performance-tuning/diagnostico_lentidao.sql)
+- [teste_explan_básico_exemplo](./03-performance-tuning/01_diagnostico_lentidao.sql)
 
 ## Logs - Ambiente de Estudos
 
