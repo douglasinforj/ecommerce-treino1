@@ -228,7 +228,7 @@ como adicionar uma tabela para armazenar as remomedações (Deploy)
 
 ---
 
-# Simulando dia-a-dia dos dados (Muito boa esta fazer real)
+# Simulando dia-a-dia dos dados (Muito boa esta fase)
 Aqui terá um script em python que irá popular as tabelas do projeto como se estivesse em produção,
 para as análise seja mais proximas do dia a dia.
 
@@ -258,6 +258,10 @@ para as análise seja mais proximas do dia a dia.
 
  #### Link
  - [solucao](./popular_dados_com_python/simulador_vendas.py)
+
+ ![Diagrama](./images/resultado_simulador_vendas.png)
+
+ ---
 
 
 
