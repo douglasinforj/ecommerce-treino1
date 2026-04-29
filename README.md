@@ -68,28 +68,38 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
 
 ## Treinando Análises de Dados para Negócios
+
 ### Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
+
+- Relatórios de vendas
+
+
 - Ranking de Vendas por Categoria mostrando: Mês, Categoria, Total Vendas, e Percentual de contribuição para aquele mês.
-[solução](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
+[solucao](./02-business-queries/01_Ranking_vendas_por_categoria.sql)
 
 - Análise de margem baseada em média ponderada
-[solução](./02-business-queries/02_magem_media_ponderada.sql)
+[solucao](./02-business-queries/02_magem_media_ponderada.sql)
 - Análise de margem por venda individual
-[solução](./02-business-queries/03_margem_venda_individual.sql)
+[solucao](./02-business-queries/03_margem_venda_individual.sql)
 - Painel executivo Análise resumo para reunião de vendas do tipo alerta e recomendação
-[solução](./02-business-queries/04_painel_executivo_reunioes_board.sql)
+[solucao](./02-business-queries/04_painel_executivo_reunioes_board.sql)
 
 ### Cancelamentos % - Análise de Fraude e Operação
 - Análise de cancelamento por perfil
-[solução](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
+[solucao](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
 - Análise de cancelamento por perfil (Performance)
-[solução](./02-business-queries/06_analise_de_cancelamento_com_performance.sql)
+[solucao](./02-business-queries/06_analise_de_cancelamento_com_performance.sql)
 
 ### Análise de performance de entregas - LEAD TIME
 - SLAs de Tranportadoras
-[solução](./02-business-queries/07_analise_de_performance_de_entregas.sql)
+[solucao](./02-business-queries/07_analise_de_performance_de_entregas.sql)
 
 ### Ranking detalhado para vendas, voltado a executivo, top 10 com análise de tendencias
 - Top 10 com análise de tendência | Classificação para ação
-[solução](./02-business-queries/08_ranking_detalhado_vendas.sql)
+[solucao](./02-business-queries/08_ranking_detalhado_vendas.sql)
+
+### Tickets Médios
+
+- Ticket Médio com analise de tendencias
+[solucao](./02-business-queries/09_ticket_medio_com_analise_de_tendencia.sql)
 
