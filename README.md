@@ -237,8 +237,11 @@ para as análise seja mais proximas do dia a dia.
  - Baseado no horário real (mais vendas à tarde/noite)
  - Velocidade realista (Intervalos entre vendas de 20-300 segundos)
  - Para com Ctrl+C, mantendo os dados já inseridos
- - Comando: python simulador_vendas.py
+ - Comando: 
+ ```python simulador_vendas.py```
 2. Modos específicos
+ - python simulador_vendas.py --backfill 30       (popular dias atras)
+ - python simulador_vendas.py --data 2024-12-15   (somente o dia específico)
 
 
 
