@@ -225,7 +225,6 @@ como adicionar uma tabela para armazenar as remomedações (Deploy)
  - Exemplo Simples mas prático de consumo.
 [solucao](./01-database-schema/02_deploy_sistema_remomendacoes.sql)
 
-2. Consulta
 
 
 
