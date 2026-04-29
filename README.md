@@ -212,6 +212,28 @@ Estudos mais profundos e técnicas estatísticas.
 
 ---
 
+### 📦 Operação / Estoque (Giro e Ruptura)
+
+- Análise de giro de estoque e cobertura
+  - Total vendido por produto
+  - Giro de estoque
+  - Dias para zerar estoque
+  - Alertas operacionais (excesso, ruptura, produtos sem venda)
+
+[solucao](./02-business-queries/19_analise_giro_estoque_e_ruptura.sql)
+
+### Curva ABC Real (80/20) baseada em faturamento (sem regras fixas - é percentual acumulado)
+- Detalhes da classificação:
+- Classe A (Alta Relevância): São os produtos mais importantes, representando cerca de 80% do faturamento, 
+mas em pequena quantidade de itens (aprox. 20%). Exigem controle rigoroso, inventários frequentes e 
+negociação próxima com fornecedores. 
+- Classe B (Relevância Média): Produtos intermediários, compondo cerca de 15% do faturamento e 30% dos itens. O controle é moderado, visando um equilíbrio entre estoque e custo. 
+- Classe C (Baixa Relevância): Itens com baixo faturamento (cerca de 5%), mas que representam a maior quantidade física de produtos (aprox. 50%). Exigem menos controle, evitando altos custos de armazenagem. 
+[solucao](./02-business-queries/20_curva_ABC_real_80_20_baseada_faturamento.sql)
+
+
+---
+
 ## Observação
 Algumas análises (como cancelamentos e SLA) não aparecem diretamente no glossário clássico (LTV, CAC, etc.), mas são **indicadores operacionais críticos** que impactam diretamente métricas como:
 - ROI
