@@ -154,9 +154,6 @@ Foco em clientes que mais geram receita ao longo do tempo.
   - Aumenta LTV e Ticket Médio (AOV)
 [solucao](./02-business-queries/16_analise_funil_vendas_cross_sell_e_up_sell.sql)
 
-
-
-
 ---
 
 ### AOV (Ticket Médio)
@@ -183,6 +180,15 @@ Análises financeiras e de rentabilidade.
 
 ### Churn / Cancelamentos / Risco
 Indicadores de perda de clientes ou problemas operacionais.
+
+- Análise de cancelamento por produto
+  - Taxa de cancelamento (%)
+  - Volume de pedidos afetados
+  - Ticket médio dos cancelamentos
+  - Identificação de produtos problemáticos
+
+[solucao](./02-business-queries/23_cancelamento_produto.sql)
+
 
 - Análise de cancelamento por perfil  
 [solucao](./02-business-queries/05_analise_de_canelamento_por_perfil.sql)
