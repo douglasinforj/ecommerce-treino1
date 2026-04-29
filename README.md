@@ -197,13 +197,13 @@ Análises financeiras e de rentabilidade.
 [solucao](./02-business-queries/04_painel_executivo_reunioes_board.sql)
 
 
-## Análise de Sucesso x Falhas
+### Análise de Sucesso x Falhas
 
 - Taxa de falha por método de pagamento
 - Tempo médio de conversão (pedido → pagamento)
 - Receita perdida por cancelamento
 - Ticket médio perdido
-  - Como nosso cenário não a tabela não tem status de pagamento, usamos proxy via pedidos.status.
+- (OBS.)Como nosso cenário não a tabela não tem status de pagamento, usamos proxy via pedidos.status.
 
 - VISÃO COMPLETA (nível executivo)
  - Pedido criado
