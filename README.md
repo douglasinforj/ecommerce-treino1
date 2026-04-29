@@ -1,6 +1,21 @@
 # Projeto banco de dados E-commerce
-Projeto criado do zero com a finalidade de repassar conhecimentos adquiridos pela carreira de Analista de Suporte, hoje pratico
-com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo mercado.
+
+
+## Descrição
+Projeto visando estudar, repassar e reutilizar conceitos que utilizei ao longo da minha carreira atuando como analista de suporte computacional para
+uma empresa de varejo com forte vendas no ecommerce. Na época minha contratação foi focada na implementação de um infraestrutura robusta e suporte computacional para a empresa como um todo. Com o tempo houve a necessidade de expandir os conhecimentos para banco de dados e programação. Iniciei com a
+iniciativa de introduzir a análise de dados para melhoria das tomadas de decisão, isso me fez mergulhar no banco de dados, buscando responder as perguntas 
+que o negócio exigia para ser melhor direcionada. A linguagem SQL foi fundamental para que eu pudesse colocar em codigo todas essas questões, com ajuda de 
+outra linguagem "python" pude expandir mais ainda os conhecimentos, agregar valores a um departamento que nascia na empresa "BI". 
+
+## Foco nas Experiências passadas
+- Preparo do servidor DB
+- Analises de dados
+- Performance de querys
+- Api em python (django Rest) para disponibilidade de dados para parceiros terceiros como (salesForce) e sistemas de Dashboard de terceiros
+- Projeto de criação de um RUB de dados para unificação de vendas de diversar fontes (lojas regionais) com (postgreSQL)
+- Disponibilidade desses dados (indicadores) em tempo real com ferramentas streamlit em python
+- Lidar com diversidade de SGBDs como: Postgresql, SqlServer (sap), Mysql(pdv lojas)
 
 ## Diagrama Lógico
 
@@ -10,8 +25,13 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
  - itens_pedido (PK Composta: pedido_id + produto_id, FK: ambos)
  - pagamentos (PK:id, FK:pedido_id) - One-to-One ou One-to-Many
  - entregas (PK: id, FK: pedido_id)
+ - rastreamento_log(PK: id, FK: entragas_id)
 
 ![Diagrama](./images/diagrama.png)
+
+## Ferramenta utilizada Mysql
+O SGBD utilizado para estes estudos de casos foi o Mysql, para facil instalação, varios projetos para pequenas e médias empresa utilizam.
+Nada como adapatar para outos SGBDs. Meu preferido é o Postgresql
 
 ## Criando Banco de dados e tabelas
  - [script banco de dados e tabelas](./01-database-schema/01_deploy_ecommerce.sql)
@@ -30,7 +50,9 @@ com foco de ser um desenvolvedor de Sistema, onde SQL é muito exigido pelo merc
 - [limpar_dados.py](./popular_dados_com_python/limpar_dados.py)
 
 
-## CHECKLIST DO DBA: EXPLAIN
+## CHECKLIST DO DBA: EXPLAIN (Desempenho com as queries)
+O Foco não é ser um DBA aqui mas pensar como eles, tudo deve ser orientado a teste antes de aplicar um código
+a ideia aqui é verificar como estão as consultas criadas e tentar melhorar-las.
 
 Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
@@ -55,7 +77,7 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 | Impossible WHERE           | Condição sempre falsa            | Corrigir lógica da query                         | 🔴 IMEDIATA |
 | Select tables optimized away | Query otimizada pelo MySQL     | Nada a fazer                                     | 🟢 PERFEITO |
 ### Link
-- [teste_explan_básico](./03-performance-tuning/diagnostico_lentidao.sql)
+- [teste_explan_básico_exemplo](./03-performance-tuning/diagnostico_lentidao.sql)
 
 ## Logs - Ambiente de Estudos
 
@@ -72,6 +94,10 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 ### Para tomadas de decisões é preciso analisar os dados afim de responder perguntas relacionas ao negócio:
 
 - Relatórios de vendas
+[solucao](./02-business-queries/10_relatorio_vendas.sql)
+
+- Relatório de vendas clientes Pleno
+[solucao](./02-business-queries/11_relatorio_vendas_cliente.sql)
 
 
 - Ranking de Vendas por Categoria mostrando: Mês, Categoria, Total Vendas, e Percentual de contribuição para aquele mês.
@@ -102,4 +128,19 @@ Interpretação dos principais sinais do EXPLAIN e ações recomendadas:
 
 - Ticket Médio com analise de tendencias
 [solucao](./02-business-queries/09_ticket_medio_com_analise_de_tendencia.sql)
+
+
+
+
+
+
+
+
+
+
+
+
+# Passos que serão abordados
+- api com java spring
+- Painel dashboard
 

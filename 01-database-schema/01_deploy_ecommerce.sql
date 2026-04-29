@@ -125,6 +125,9 @@ CREATE index idx_data_envio ON entregas(data_envio);
 CREATE index idx_data_entrega ON entregas(data_entrega);
 CREATE index idx_transportadora_status ON entregas(transportadora, status);
 
+-- Índice que cobre WHERE + GROUP BY + ORDER BY
+CREATE INDEX idx_data_cliente ON pedidos(data_pedido, cliente_id);
+
 
 
 
