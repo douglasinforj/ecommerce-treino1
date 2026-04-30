@@ -197,6 +197,25 @@ Análises financeiras e de rentabilidade.
 [solucao](./02-business-queries/04_painel_executivo_reunioes_board.sql)
 
 
+### Análise de comportamento (temporal / sazonalidade)
+
+- padrão por dia da semana
+- padrão por hora
+- tendência (média móvel)
+
+- Vendas por hora/dia/semana
+
+[solucao](./02-business-queries/27.1_vendas__por_hora_dia_semana.sql)
+
+- Vendas por dia, média móvel (tendências)
+
+[solucao](./02-business-queries/27.3_venda_por_dia_media_movel.sql)
+
+- Comparativos ano x ano YoY
+
+[solucao](./02-business-queries/27.2_comparativo_ano_vs_anos_YoY.sql)
+
+
 ### Análise de Sucesso x Falhas
 
 - Taxa de falha por método de pagamento
