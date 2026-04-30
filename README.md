@@ -31,6 +31,11 @@ Mas a proposta é a mesma, servindo de partida para idéia de sistemas de vendas
 
 ![Diagrama](./images/diagrama.png)
 
+### Link brdiagrama
+Site para construção de diagrama para banco de dados
+
+[Acessar a página](https://brdiagrama.com/gerador)
+
 ## Ferramenta utilizada Mysql
 O SGBD utilizado para estes estudos de casos foi o Mysql, para facil instalação, varios projetos para pequenas e médias empresa utilizam.
 Nada como adapatar para outos SGBDs. Meu preferido é o Postgresql
